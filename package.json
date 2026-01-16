@@ -1,4 +1,6 @@
 {
+    "name": "embed",
+    "version": "1.0.1",
     "scripts": {
         "lint": "eslint --ext .js,.jsx,.ts,.tsx frontend",
         "typecheck": "tsc --noEmit"

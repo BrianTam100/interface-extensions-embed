@@ -71,7 +71,7 @@ function shouldFieldBeAllowedForUrl(field: {id: string, config: FieldConfig}) {
             (field.config.type === FieldType.FORMULA ||
             field.config.type === FieldType.MULTIPLE_LOOKUP_VALUES ||
             field.config.type === FieldType.ROLLUP) &&
-            field.config.options?.result?.type === FieldType.MULTILINE_TEXT)
+            field.config.options?.result?.type === FieldType.SINGLE_LINE_TEXT)
     );
 }
 
@@ -90,9 +90,9 @@ function EmbedApp() {
 
     const base = useBase();
     const records = useRecords(base.tables[0]);
-    const [currentRecordId, setCurrentRecordId] = useState<string>(records.length > 0 ? records[0].id : '');
-    const currentRecord = records.find(record => record.id === currentRecordId) ?? null;
     const recordsWithUrls = records.filter(record => record.getCellValueAsString(urlField));
+    const [currentRecordId, setCurrentRecordId] = useState<string>(recordsWithUrls.length > 0 ? recordsWithUrls[0].id : '');
+    const currentRecord = records.find(record => record.id === currentRecordId) ?? null;
 
     return (
         <div className="h-screen flex">
