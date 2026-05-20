@@ -54,7 +54,7 @@ function InboxSidebarItem({
         <div
             className={clsx('px-3 py-2 rounded-md', {
                 'font-medium bg-blue-blueLight3': isSelected,
-                'hover:bg-gray-gray50 hover:cursor-pointer': !isSelected,
+                'hover:bg-gray-gray60 hover:cursor-pointer': !isSelected,
             })}
             onClick={isSelected ? undefined : onClick}
         >
